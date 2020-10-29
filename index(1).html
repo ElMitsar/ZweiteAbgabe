@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hausaufgabe</title>
+</head>
+    <body>
+        <form onsubmit="calculatePrice()">
+            <!-- Schrauben -->
+            <label for="screw">Wieviele Schrauben?:</label>
+            <input id="screw" pattern="[0-9]">
+            <br>
+
+            <!-- Muttern -->
+            <label for="screwnut">Wieviele Muttern?:</label>
+            <input id="screwnut" pattern="[0-9]">
+            <br>
+
+            <!-- Unterlegscheiben -->
+            <label for="grommet">Wieviele Unterlegsscheiben?:</hjlabel>
+            <input id="grommet" pattern="[0-9]">
+            <br>
+
+            <input type="button" onClick="calculatePrice()" value="Absenden">
+            <input type="reset" value="Formular löschen">
+        </form>
+        <br><br>
+        <p id="pricefield">=>  0.00 CHF</p>
+    </body>
+</html>
+<script>
+    function calculatePrice()
+    {
+        var screws = document.getElementById("screw").value;
+        var screwnuts = document.getElementById("screwnut").value;
+        var grommets = document.getElementById("grommet").value;
+        var price = (screws * 0.2) + (screwnuts * 0.1) + (grommets * 0.05);
+        console.log(price);
+        var result = ("=> " + price + " CHF");
+        document.getElementById("pricefield").innerHTML = result;
+    };
+</script>
